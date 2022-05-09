@@ -20,10 +20,12 @@ body {
   top: 0;
   width: 100%;
   background-color: #000;
+  z-index: 1;
+  padding: 0 5%;
 }
 
 .header-container {
-  padding: 1rem 1rem;
+  height: 5rem;
 }
 
 .header-logo {
@@ -63,14 +65,117 @@ body {
   align-items: center;
 }
 
-main {
-  margin-top: 6rem;
-}
 .main-container {
-  margin: 0 5%;
+  margin: 5rem 0 0 5%;
 }
 
 .banner-principal {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5fr 7fr;
+  height: 70vh;
 }
+
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-image, .banner-info{
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-info {
+  display: grid;
+  align-content: center;
+}
+
+.banner-image::before {
+  background-image: linear-gradient( 0deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -moz-linear-gradient( 0deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -ms-linear-gradient( 0deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -o-linear-gradient( 0deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -webkit-linear-gradient( 0deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.banner-image::after {
+  background-image: linear-gradient( 90deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -moz-linear-gradient( 90deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -ms-linear-gradient( 90deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -o-linear-gradient( 90deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+  background-image: -webkit-linear-gradient( 90deg, 
+  var(--secondaryColor) 0%, rgba( 255, 255, 255, 0 ) 40% );
+
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.banner-buttons {
+  display: flex;
+  gap:20px;
+}
+
+.banner-buttons a {
+  display: flex;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+
+.assistir-button {
+  background-color: #EEE;
+  color:#141414;
+}
+
+.assistir-button:hover {
+  background-color: #CCC;
+}
+
+.mais-info-button {
+  background-color: #888;
+  color:#EEE;
+}
+
+.mais-info-button:hover{
+  background-color: #666;
+}
+
+.banner-title {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.banner-description {
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
+}
+
+/* .mais-info-button svg {
+  transform: translate(0px, 3px);
+} */
