@@ -1,55 +1,49 @@
-var currentSlides = 5;
+document.getElementById('currentYear').innerHTML = new Date().getFullYear();
 
-//OnLoad:
-$(document).ready(function () {
-  document.getElementById('currentYear').innerHTML = new Date().getFullYear();
-  w_w = $(window).width();
-  if (w_w > 200) {
-    var element = document.getElementById('mySwiper');
+//Save current slide per view
+var currentSlidesPerView;
 
-    //Initialize Swiper
-    var swiper = new Swiper('.mySwiper', {
-      slidesPerView: 5,
-      spaceBetween: 10,
-      slidesPerGroup: 5,
-      loop: true,
-      loopFillGroupWithBlank: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+function updateSwiperSlides(windowWidth) {
+  var totalSlidesPerView;
+  if (windowWidth > 1000) {
+    totalSlidesPerView = 3;
+  } else if (windowWidth > 800) {
+    totalSlidesPerView = 2;
+  } else {
+    totalSlidesPerView = 1;
   }
 
-  //onResize
-  $(window).resize(function () {
-    w_w = $(window).width();
-    if (w_w > some_value) {
-      var element = document.getElementById('mySwiper');
-      element.classList.add('mystyle');
-      element.classList.remove('mystyle');
-      //Initialize Swiper
-      var swiper = new Swiper('.mySwiper', {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        slidesPerGroup: 3,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-    }
+  if (currentSlidesPerView === totalSlidesPerView) return;
+
+  currentSlidesPerView = totalSlidesPerView;
+
+  //Initialize Swiper
+  new Swiper('.mySwiper', {
+    slidesPerView: currentSlidesPerView,
+    spaceBetween: 10,
+    slidesPerGroup: currentSlidesPerView,
+    loop: true,
+    loopFillGroupWithBlank: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
+}
+
+//OnLoad: (check the screen size when the page loads)
+$(document).ready(function () {
+  windowWidth = $(window).width();
+  updateSwiperSlides(windowWidth);
+});
+//onResize (check the screen size when the page resizes)
+$(window).resize(function () {
+  windowWidth = $(window).width();
+  updateSwiperSlides(windowWidth);
 });
 
 var visibleDropdownOptions = false;
