@@ -7,13 +7,19 @@
   <title>Cassanoflix - A Netflix Clone</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="shortcut icon" href="./img/logo.png" />
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body>
   <header class="header">
     <div class="header-container">
       <div class="header-left">
-        <h2 class="header-logo">CASSANOFLIX</h2>
+        <div class="header-logo"><a href="#">
+            <h2> CASSANOFLIX</h2>
+          </a></div>
         <nav class="header-options-left">
           <ul>
             <li><a href="#inicio">Início</a></li>
@@ -23,13 +29,49 @@
             <li><a href="#minhalista">Minha lista</a></li>
           </ul>
         </nav>
+        <div class="header-options-left-mobile">
+          <a href="#" onclick="activeDropdownOptions()">
+            <p class="keep-inline-block">Navegar</p>
+            <div class="svg-div-p keep-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+              </svg></div>
+          </a>
+
+          <nav class="dropdown-options-mobile" id="dropdownOptions">
+            <ul>
+              <li><a href="#inicio" onclick="activeDropdownOptions()">Início</a></li>
+              <li><a href="#series" onclick="activeDropdownOptions()">Séries</a></li>
+              <li><a href="#filmes" onclick="activeDropdownOptions()">Filmes</a></li>
+              <li><a href="#bombando" onclick="activeDropdownOptions()">Bombando</a></li>
+              <li><a href="#minhalista" onclick="activeDropdownOptions()">Minha lista</a></li>
+            </ul>
+          </nav>
+
+        </div>
+
       </div>
       <div class="header-right">
         <nav class="header-options-right">
           <ul>
-            <li><a href="#">Pesquisar</a></li>
-            <li><a href="#">Notificações</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li id="pesquisar"><a href="#">
+                <div class="svg-div-g"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg> </div>
+              </a></li>
+            <li id="notificacao"><a href="#">
+                <div class="svg-div-g"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+                  </svg></div>
+              </a></li>
+            <li id="usuario"><a href="#">
+                <div class="svg-div-g keep-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
+                  </svg></div>
+                <div class="svg-div-p keep-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg></div>
+              </a></li>
           </ul>
         </nav>
       </div>
@@ -62,18 +104,136 @@
         <img src="./img/perfil.png" alt="imagem do banner">
       </div>
     </div>
+    <div class="lancamento bloco-categoria">
+      <h1>Lançamentos</h1>
+      <div class="list-container swiper mySwiper" id="mySwiper">
+        <div class="swiper-wrapper">
+          <div class="card-data swiper-slide bg1"></div>
+          <div class="card-data swiper-slide bg2"></div>
+          <div class="card-data swiper-slide bg3"></div>
+          <div class="card-data swiper-slide bg4"></div>
+          <div class="card-data swiper-slide bg5"></div>
+          <div class="card-data swiper-slide bg6"></div>
+        </div>
 
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
-    <h1 class="banner-title">Restante do Site</h1>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="series-alta bloco-categoria">
+      <h1>Séries em alta</h1>
+      <div class="list-container swiper mySwiper" id="mySwiper">
+        <div class="swiper-wrapper">
+          <div class="card-data swiper-slide bg1"></div>
+          <div class="card-data swiper-slide bg2"></div>
+          <div class="card-data swiper-slide bg3"></div>
+          <div class="card-data swiper-slide bg4"></div>
+          <div class="card-data swiper-slide bg5"></div>
+          <div class="card-data swiper-slide bg6"></div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="filmes-alta bloco-categoria">
+      <h1>Filmes em alta</h1>
+      <div class="list-container swiper mySwiper" id="mySwiper">
+        <div class="swiper-wrapper">
+          <div class="card-data swiper-slide bg1"></div>
+          <div class="card-data swiper-slide bg2"></div>
+          <div class="card-data swiper-slide bg3"></div>
+          <div class="card-data swiper-slide bg4"></div>
+          <div class="card-data swiper-slide bg5"></div>
+          <div class="card-data swiper-slide bg6"></div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="top-10 bloco-categoria">
+      <h1>Top 10 de hoje</h1>
+      <div class="list-container swiper mySwiper" id="mySwiper">
+        <div class="swiper-wrapper">
+          <div class="card-data swiper-slide bg1"></div>
+          <div class="card-data swiper-slide bg2"></div>
+          <div class="card-data swiper-slide bg3"></div>
+          <div class="card-data swiper-slide bg4"></div>
+          <div class="card-data swiper-slide bg5"></div>
+          <div class="card-data swiper-slide bg6"></div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="minha-lista bloco-categoria">
+      <h1>Minha lista</h1>
+      <div class="list-container swiper mySwiper" id="mySwiper">
+        <div class="swiper-wrapper">
+          <div class="card-data swiper-slide bg1"></div>
+          <div class="card-data swiper-slide bg2"></div>
+          <div class="card-data swiper-slide bg3"></div>
+          <div class="card-data swiper-slide bg4"></div>
+          <div class="card-data swiper-slide bg5"></div>
+          <div class="card-data swiper-slide bg6"></div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
   </main>
 
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <footer class="footer">
+    <div class="footer-info">
+      <div class="sobre">
+        <h3>Sobre</h3>
+        <ul>
+          <p>Cassanoflix foi criado com base no template do site de streaming <a href="https://www.netflix.com/">Netflix</a>, utilizando conceitos de HTML, CSS, Javascript e jQuery, utilizando a API do IMDB para consultar as informações sobre os títulos apresentados.</p>
+        </ul>
+      </div>
+      <div class="contato">
+        <h3>Contato</h3>
+        <ul>
+          <li>Email: <a href="mailto:contato@victorcassano.com">contato@victorcassano.com</a></li>
+          <li>Linkedin: <a href="https://www.linkedin.com/in/cassanovsc/">linkedin.com/in/cassanovsc/</a></li>
+          <li>Telefone/WhatsApp: <a href="tel:16993693550">(16) 99369-3550</a></li>
+        </ul>
+      </div>
+      <div class="contato">
+        <h3>Links úteis</h3>
+        <ul>
+          <li><a href="mailto:contato@victorcassano.com">Netflix (Site original)</a></li>
+          <li><a href="https://www.linkedin.com/in/cassanovsc/">IMDB API (Info dos títulos) </a></li>
+          <li><a href="https://swiperjs.com/">SwiperJs (Carrossel slider)</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>©<span id="currentYear"></span> Cassanoflix - Todos os direitos reservados.</p>
+  </footer>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+  <script src="./js/script.js"></script>
+
+
 
 </body>
 
