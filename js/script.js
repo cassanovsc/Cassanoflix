@@ -5,22 +5,22 @@ var currentSlidesPerView;
 
 function updateSwiperSlides(windowWidth) {
   var totalSlidesPerView;
-  if (windowWidth > 1000) {
-    totalSlidesPerView = 3;
+  if (windowWidth > 1200) {
+    totalSlidesPerView = 5;
+  } else if (windowWidth > 1000) {
+    totalSlidesPerView = 4;
   } else if (windowWidth > 800) {
-    totalSlidesPerView = 2;
+    totalSlidesPerView = 3;
   } else {
-    totalSlidesPerView = 1;
+    totalSlidesPerView = 2;
   }
-
-  if (currentSlidesPerView === totalSlidesPerView) return;
 
   currentSlidesPerView = totalSlidesPerView;
 
   //Initialize Swiper
   new Swiper('.mySwiper', {
     slidesPerView: currentSlidesPerView,
-    spaceBetween: 10,
+    spaceBetween: 30,
     slidesPerGroup: currentSlidesPerView,
     loop: true,
     loopFillGroupWithBlank: false,
@@ -55,4 +55,12 @@ function activeDropdownOptions() {
   } else {
     document.getElementById('dropdownOptions').style.display = 'none';
   }
+}
+// getLancamentos();
+function getLancamentos() {
+  fetch(
+    'https://api.themoviedb.org/3/trending/all/day?api_key=048f6cfb793160accb8cce7d10a17083',
+  )
+    .then((T) => T.json())
+    .then((T) => console.log(T));
 }

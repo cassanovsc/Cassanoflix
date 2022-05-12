@@ -37,7 +37,7 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #000;
+  background-color: var(--secondaryColor);
   z-index: 100;
   padding: 0 5%;
 }
@@ -392,15 +392,32 @@ img{
   }
 }
 
+.copyright {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+.copyright img {
+  height: 1rem;
+}
+
 @media (max-width: 700px) {
   .footer-info {
     grid-template-columns: 1fr;
     padding-bottom: 2rem;
     gap: 2rem;
   }
+
+  .copyright {
+    grid-template-columns: auto;
+    gap: 1rem;
+  }
+
+  .tmdb {
+    width: fit-content;
+  }
 }
-
-
 
 .bg1 {
   background-color: aqua;
