@@ -32,14 +32,14 @@
         <nav class="header-options-left">
           <ul>
             <li><a href="#inicio">Início</a></li>
-            <li><a href="#series">Séries</a></li>
-            <li><a href="#filmes">Filmes</a></li>
-            <li><a href="#bombando">Bombando</a></li>
-            <li><a href="#minhalista">Minha lista</a></li>
+            <li><a href="#series-alta">Séries</a></li>
+            <li><a href="#filmes-alta">Filmes</a></li>
+            <li><a href="#top-10">Bombando</a></li>
+            <li><a href="#minha-lista">Minha lista</a></li>
           </ul>
         </nav>
         <div class="header-options-left-mobile">
-          <a href="#" onclick="activeDropdownOptions()">
+          <a href="" onclick="activeDropdownOptions()">
             <p class="keep-inline-block">Navegar</p>
             <div class="svg-div-p keep-inline-block"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                 <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
@@ -49,10 +49,10 @@
           <nav class="dropdown-options-mobile" id="dropdownOptions">
             <ul>
               <li><a href="#inicio" onclick="activeDropdownOptions()">Início</a></li>
-              <li><a href="#series" onclick="activeDropdownOptions()">Séries</a></li>
-              <li><a href="#filmes" onclick="activeDropdownOptions()">Filmes</a></li>
-              <li><a href="#bombando" onclick="activeDropdownOptions()">Bombando</a></li>
-              <li><a href="#minhalista" onclick="activeDropdownOptions()">Minha lista</a></li>
+              <li><a href="#series-alta" onclick="activeDropdownOptions()">Séries</a></li>
+              <li><a href="#filmes-alta" onclick="activeDropdownOptions()">Filmes</a></li>
+              <li><a href="#top-10" onclick="activeDropdownOptions()">Bombando</a></li>
+              <li><a href="#minha-lista" onclick="activeDropdownOptions()">Minha lista</a></li>
             </ul>
           </nav>
 
@@ -62,17 +62,17 @@
       <div class="header-right">
         <nav class="header-options-right">
           <ul>
-            <li id="pesquisar"><a href="#">
+            <li id="pesquisar"><a href="">
                 <div class="svg-div-g"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                   </svg> </div>
               </a></li>
-            <li id="notificacao"><a href="#">
+            <li id="notificacao"><a href="">
                 <div class="svg-div-g"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                     <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
                   </svg></div>
               </a></li>
-            <li id="usuario"><a href="#">
+            <li id="usuario"><a href="">
                 <div class="svg-div-g keep-inline-block">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -90,7 +90,7 @@
   </header>
 
   <main class="main-container">
-    <div class="banner-principal">
+    <div class="banner-principal" id="inicio">
       <div class="banner-info">
         <h1 class="banner-title">Doutor Estranho no Multiverso da Loucura</h1>
         <p class="banner-description">Doutor Estranho, com a ajuda de aliados místicos antigos e novos, atravessa as perigosas realidades alternativas e alucinantes do Multiverso para enfrentar um novo adversário misterioso.
@@ -115,16 +115,12 @@
         <img src="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/AdyJH8kDm8xT8IKTlgpEC15ny4u.jpg" alt="imagem do banner">
       </div>
     </div>
-    <div class="lancamento bloco-categoria">
+    <div class="bloco-categoria" id="lancamento">
       <h1>Lançamentos</h1>
-      <div class="list-container swiper mySwiper" id="mySwiper">
+      <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="card-data swiper-slide bg1"></div>
           <div class="card-data swiper-slide bg2"></div>
-          <div class="card-data swiper-slide bg3"></div>
-          <div class="card-data swiper-slide bg4"></div>
-          <div class="card-data swiper-slide bg5"></div>
-          <div class="card-data swiper-slide bg6"></div>
         </div>
 
         <div class="swiper-button-next"></div>
@@ -133,9 +129,9 @@
       </div>
     </div>
 
-    <div class="series-alta bloco-categoria">
+    <div class="bloco-categoria" id="series-alta">
       <h1>Séries em alta</h1>
-      <div class="list-container swiper mySwiper" id="mySwiper">
+      <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="card-data swiper-slide bg1"></div>
           <div class="card-data swiper-slide bg2"></div>
@@ -151,16 +147,11 @@
       </div>
     </div>
 
-    <div class="filmes-alta bloco-categoria">
+    <div class="bloco-categoria" id="filmes-alta">
       <h1>Filmes em alta</h1>
-      <div class="list-container swiper mySwiper" id="mySwiper">
+      <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="card-data swiper-slide bg1"></div>
-          <div class="card-data swiper-slide bg2"></div>
-          <div class="card-data swiper-slide bg3"></div>
-          <div class="card-data swiper-slide bg4"></div>
-          <div class="card-data swiper-slide bg5"></div>
-          <div class="card-data swiper-slide bg6"></div>
         </div>
 
         <div class="swiper-button-next"></div>
@@ -169,9 +160,9 @@
       </div>
     </div>
 
-    <div class="top-10 bloco-categoria">
+    <div class="bloco-categoria" id="top-10">
       <h1>Top 10 de hoje</h1>
-      <div class="list-container swiper mySwiper" id="mySwiper">
+      <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="card-data swiper-slide bg1"></div>
           <div class="card-data swiper-slide bg2"></div>
@@ -191,9 +182,9 @@
       </div>
     </div>
 
-    <div class="minha-lista bloco-categoria">
+    <div class="bloco-categoria" id="minha-lista">
       <h1>Minha lista</h1>
-      <div class="list-container swiper mySwiper" id="mySwiper">
+      <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="card-data swiper-slide bg1"></div>
           <div class="card-data swiper-slide bg2"></div>
@@ -244,7 +235,10 @@
     </div>
 
     <div class="copyright">
-      <p>© Cassanoflix - <span id="currentYear"></span>. Todos os direitos reservados.</p>
+      <div class="copyright-cassanoflix">
+        <img src="./img/dark-logo.png" alt="imagem logo">
+        <p> © Cassanoflix - <span id="currentYear"></span>. Todos os direitos reservados.</p>
+      </div>
       <div class="tmdb">
         <a href="https://www.themoviedb.org/"><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="logo The Movie DB"></a>
       </div>
