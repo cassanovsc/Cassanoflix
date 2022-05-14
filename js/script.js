@@ -87,7 +87,7 @@ function updateSwiperSlides() {
     spaceBetween: 30,
     slidesPerGroup: currentSlidesPerView,
     loop: true,
-    loopFillGroupWithBlank: true,
+    loopFillGroupWithBlank: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
