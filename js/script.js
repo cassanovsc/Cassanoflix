@@ -1,6 +1,20 @@
 //Put current year in footer
 document.getElementById('currentYear').innerHTML = new Date().getFullYear();
 
+//Set screen size
+var maxScreenP = 700,
+  maxScreenM = 1000,
+  maxScreenG = 1200,
+  lastWindowWidth = getCurrentWindowWidth();
+
+function getCurrentWindowWidth() {
+  ww = $(window).width();
+  if (ww <= maxScreenP) return 'P';
+  if (ww <= maxScreenM) return 'M';
+  if (ww <= maxScreenG) return 'G';
+  return 'X';
+}
+
 //Change to smooth scroll to sections when click in menu option
 const menuItemsDesktop = document.querySelectorAll(
   '.header-options-left a[href^="#"], .dropdown-options-mobile a[href^="#"]',
@@ -69,11 +83,11 @@ var currentSlidesPerView;
 function updateSwiperSlides() {
   windowWidth = $(window).width();
   var totalSlidesPerView;
-  if (windowWidth > 1200) {
+  if (windowWidth > maxScreenG) {
     totalSlidesPerView = 5;
-  } else if (windowWidth > 1000) {
+  } else if (windowWidth > maxScreenM) {
     totalSlidesPerView = 4;
-  } else if (windowWidth > 800) {
+  } else if (windowWidth > maxScreenP) {
     totalSlidesPerView = 3;
   } else {
     totalSlidesPerView = 2;
@@ -98,7 +112,6 @@ function updateSwiperSlides() {
     },
   });
 }
-
 function fillCardsWithTitles() {
   var idsTitles = [
     'lancamento',
@@ -106,12 +119,18 @@ function fillCardsWithTitles() {
     'filmes-alta',
     'top-10',
     'minha-lista',
+    // !stranger things, !homem aranha, greys, !tbbt, interestelar, !a origem, !harry p, !vingadores ultimato, !la casa de papel, !truque de mestre, !toy story, shrek , !freeguy, !jogador n1
   ];
 
-  var tmdbGets = [];
+  var tmdbGets = [
+    'https://api.themoviedb.org/3/movie/now_playing?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR&page=1',
+    'https://api.themoviedb.org/3/tv/popular?api_key=048f6cfb793160accb8cce7d10a17083&language=pt_BR&page=1',
+    'https://api.themoviedb.org/3/movie/popular?api_key=048f6cfb793160accb8cce7d10a17083&language=pt_BR&page=1',
+    'https://api.themoviedb.org/3/trending/all/day?api_key=048f6cfb793160accb8cce7d10a17083',
+  ];
 
   var currentSwiper = document
-    .getElementById('filmes-alta')
+    .getElementById('minha-lista')
     .getElementsByClassName('mySwiper')[0]
     .getElementsByClassName('swiper-wrapper')[0];
 
@@ -120,7 +139,7 @@ function fillCardsWithTitles() {
   div.classList.add('swiper-slide');
   div.classList.add('bg2');
 
-  currentSwiper.appendChild(div);
+  // currentSwiper.appendChild(div);
 }
 
 //OnLoad: (check the screen size when the page loads)
@@ -142,7 +161,7 @@ $(window).resize(function () {
 });
 $(window).bind('resizeEnd', function () {
   //do something, window hasn't changed size in 500ms
-  location.reload();
+  if (lastWindowWidth != getCurrentWindowWidth()) location.reload();
 });
 
 var visibleDropdownOptions = false;

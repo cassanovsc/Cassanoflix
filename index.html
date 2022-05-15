@@ -20,6 +20,12 @@
 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -96,13 +102,13 @@
         <p class="banner-description">Doutor Estranho, com a ajuda de aliados místicos antigos e novos, atravessa as perigosas realidades alternativas e alucinantes do Multiverso para enfrentar um novo adversário misterioso.
         </p>
         <div class="banner-buttons">
-          <a href="https://www.youtube.com/watch?v=X23XCFgdh2M" class="assistir-button">
+          <a href="https://www.youtube.com/watch?v=X23XCFgdh2M" target="_blank" class="assistir-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
               <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
             </svg>
             <p>Assistir</p>
           </a>
-          <a href="https://www.themoviedb.org/movie/453395-doctor-strange-in-the-multiverse-of-madness?language=pt-BR" class="mais-info-button">
+          <a href="https://www.themoviedb.org/movie/453395-doctor-strange-in-the-multiverse-of-madness?language=pt-BR" target="_blank" class=" mais-info-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
               <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
@@ -119,8 +125,18 @@
       <h1>Lançamentos</h1>
       <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="card-data swiper-slide bg1"></div>
-          <div class="card-data swiper-slide bg2"></div>
+          <div class="card-data swiper-slide">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/tUyMPMJlql8Ec7d58EIhX5WEGG4.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Spy x Family</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg></div>
+          </div>
         </div>
 
         <div class="swiper-button-next"></div>
@@ -186,12 +202,192 @@
       <h1>Minha lista</h1>
       <div class="list-container swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="card-data swiper-slide bg1"></div>
-          <div class="card-data swiper-slide bg2"></div>
-          <div class="card-data swiper-slide bg3"></div>
-          <div class="card-data swiper-slide bg4"></div>
-          <div class="card-data swiper-slide bg5"></div>
-          <div class="card-data swiper-slide bg6"></div>
+          <div class="card-data swiper-slide">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/1Rr5SrvHxMXHu5RjKpaMba8VTzi.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Homem-Aranha: Sem Volta Para Casa</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg>
+              <a href="https://www.themoviedb.org/movie/634649/watch" target="_blank">
+              </a>
+            </div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/ngoiHQul4QetfA62SdmZZOdDFAP.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Big Bang: A Teoria</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/tv/1418/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/rYxn6wryjrjeVTBCOy3JGoyFAGg.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Truque de Mestre</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/75656/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/lxD5ak7BOoinRNehOCA85CQ8ubr.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Toy Story</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/862/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/tcTjAGX9YPCMCrnXmbgXKKtECgh.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Stranger Things</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/tv/66732/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/q7fXcrDPJcf6t3rzutaNwTzuKP1.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Jogador N° 1</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/333339/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Vingadores: Ultimato</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/299534/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/piB0f2ukhVM2GEWE06Py7onqhWI.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>La Casa de Papel</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/tv/71446/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/t3LicFpYHeYpwqm7L5wDpd22hL5.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Harry Potter e a Pedra Filosofal</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/671/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/b5xAbWqVNsp14lCtR2vhaURWo7G.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>A Origem</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/27205/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Free Guy: Assumindo o Controle</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/550988/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/jNPEKkFKMl7UCw4kbNUkXZNyhna.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>A Anatomia de Grey</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg>
+              <a href="https://www.themoviedb.org/tv/1416/watch" target="_blank">
+              </a>
+            </div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Interestelar</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/157336/watch" target="_blank">
+              </a></div>
+          </div>
+          <div class="card-data swiper-slide bg1">
+            <div class="title-img">
+              <img src="https://image.tmdb.org/t/p/w780/mh7ykIfHDwTwPmhEhbV7yJN8SnB.jpg" alt="titulo da mídia">
+            </div>
+            <div class="title-media">
+              <h4>Shrek</h4>
+            </div>
+            <div class="play-media"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+              </svg><a href="https://www.themoviedb.org/movie/808/watch" target="_blank">
+              </a></div>
+          </div>
         </div>
 
         <div class="swiper-button-next"></div>
