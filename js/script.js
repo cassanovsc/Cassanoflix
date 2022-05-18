@@ -112,40 +112,10 @@ function updateSwiperSlides() {
     },
   });
 }
-function fillCardsWithTitles() {
-  var idsTitles = [
-    'lancamento',
-    'series-alta',
-    'filmes-alta',
-    'top-10',
-    'minha-lista',
-    // !stranger things, !homem aranha, greys, !tbbt, interestelar, !a origem, !harry p, !vingadores ultimato, !la casa de papel, !truque de mestre, !toy story, shrek , !freeguy, !jogador n1
-  ];
-
-  var tmdbGets = [
-    'https://api.themoviedb.org/3/movie/now_playing?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR&page=1',
-    'https://api.themoviedb.org/3/tv/popular?api_key=048f6cfb793160accb8cce7d10a17083&language=pt_BR&page=1',
-    'https://api.themoviedb.org/3/movie/popular?api_key=048f6cfb793160accb8cce7d10a17083&language=pt_BR&page=1',
-    'https://api.themoviedb.org/3/trending/all/day?api_key=048f6cfb793160accb8cce7d10a17083',
-  ];
-
-  var currentSwiper = document
-    .getElementById('minha-lista')
-    .getElementsByClassName('mySwiper')[0]
-    .getElementsByClassName('swiper-wrapper')[0];
-
-  div = document.createElement('div');
-  div.classList.add('card-data');
-  div.classList.add('swiper-slide');
-  div.classList.add('bg2');
-
-  // currentSwiper.appendChild(div);
-}
 
 //OnLoad: (check the screen size when the page loads)
 $(document).ready(function () {
   fillCardsWithTitles();
-  updateSwiperSlides();
 });
 //onResize (check the screen size when the page resizes)
 // $(window).resize(function () {
@@ -175,11 +145,98 @@ function activeDropdownOptions() {
   }
 }
 
-// getLancamentos();
-function getLancamentos() {
-  fetch(
-    'https://api.themoviedb.org/3/trending/all/day?api_key=048f6cfb793160accb8cce7d10a17083',
-  )
-    .then((T) => T.json())
-    .then((T) => console.log(T));
+// Fetch API and fill all cards
+async function fillCardsWithTitles() {
+  var idsTitles = ['lancamento', 'series-alta', 'filmes-alta', 'top-10'];
+
+  var tmdbEndPoints = [
+    'https://api.themoviedb.org/3/movie/now_playing?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR&page=1',
+    'https://api.themoviedb.org/3/tv/popular?api_key=048f6cfb793160accb8cce7d10a17083&language=pt_BR&page=1',
+    'https://api.themoviedb.org/3/movie/popular?api_key=048f6cfb793160accb8cce7d10a17083&language=pt_BR&page=1',
+    'https://api.themoviedb.org/3/trending/movie/day?api_key=048f6cfb793160accb8cce7d10a17083',
+  ];
+
+  var titlesType = ['movie', 'tv', 'movie', 'movie'];
+  // getTitles(tmdbEndPoints[0]);
+
+  const cardTemplate = document
+    .getElementById('templateCard')
+    .getElementsByClassName('card-data')[0];
+
+  for (var i = 0; i < idsTitles.length; i++) {
+    const currentCards = await getTitles(
+      tmdbEndPoints[i],
+      idsTitles[i] === 'top-10' ? 10 : 0,
+    );
+    // currentCards = await filterTitles(currentCards, titlesType[i], 20);
+
+    const currentSwiper = document
+      .getElementById(idsTitles[i])
+      .getElementsByClassName('mySwiper')[0]
+      .getElementsByClassName('swiper-wrapper')[0];
+
+    // const cloneCard = cardTemplate.cloneNode(true);
+    // currentSwiper.appendChild(cloneCard);
+
+    for (var j = 0; j < currentCards.length; j++) {
+      const cloneCard = cardTemplate.cloneNode(true);
+      cloneCard
+        .getElementsByClassName('title-img')[0]
+        .getElementsByTagName('img')[0].src =
+        'https://image.tmdb.org/t/p/w780' + currentCards[j]['backdrop_path'];
+
+      cloneCard
+        .getElementsByClassName('title-media')[0]
+        .getElementsByTagName('h4')[0].innerHTML =
+        titlesType[i] === 'movie'
+          ? currentCards[j]['original_title']
+          : currentCards[j]['name'];
+      if (idsTitles[i] === 'top-10') {
+        console.log('must change content');
+        cloneCard.getElementsByClassName('title-img')[0].dataset.content =
+          '#' + (j + 1);
+      }
+      currentSwiper.appendChild(cloneCard);
+    }
+  }
+  updateSwiperSlides();
+}
+function timeout(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function getTitles(url, nMax = 0) {
+  return fetch(url)
+    .then((resp) => resp.json())
+    .then(function (data) {
+      titles = data['results'];
+      titles = titles.filter((title) => title['backdrop_path'] !== null);
+      return nMax === 0 ? titles : titles.slice(0, 10);
+      return filterTitles();
+      return data['results'].shift(); //.slice(0, 10)
+      currentTitle = GetTitle(currentTitle['id'], typeTitle);
+      cont++;
+    })
+    .catch(function (err) {
+      return [];
+    });
+}
+
+function getTitle(id, typeTitle) {
+  var url =
+    'https://api.themoviedb.org/3/' +
+    typeTitle +
+    '/' +
+    id +
+    '?api_key=<<api_key>>&language=pt-BR';
+  return fetch(url)
+    .then((resp) => resp.json())
+    .then(function (data) {
+      return ['green'];
+
+      return [data];
+    })
+    .catch(function (err) {
+      return [];
+    });
 }
