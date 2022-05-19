@@ -115,7 +115,7 @@ function updateSwiperSlides() {
 
 //OnLoad: (check the screen size when the page loads)
 $(document).ready(function () {
-  fillCardsWithTitles();
+  updateData();
 });
 //onResize (check the screen size when the page resizes)
 // $(window).resize(function () {
@@ -166,9 +166,11 @@ async function fillCardsWithTitles() {
   for (var i = 0; i < idsTitles.length; i++) {
     const currentCards = await getTitles(
       tmdbEndPoints[i],
+      titlesType[i],
       idsTitles[i] === 'top-10' ? 10 : 0,
     );
-    // currentCards = await filterTitles(currentCards, titlesType[i], 20);
+
+    // currentCards = await translateTitles(currentCards, titlesType[i]);
 
     const currentSwiper = document
       .getElementById(idsTitles[i])
@@ -197,60 +199,128 @@ async function fillCardsWithTitles() {
 
       cloneCard
         .getElementsByClassName('title-media')[0]
-        .getElementsByTagName('h4')[0].innerHTML =
-        titlesType[i] === 'movie'
-          ? currentCards[j]['original_title']
-          : currentCards[j]['name'];
+        .getElementsByTagName('h4')[0].innerHTML = currentCards[j]['name'];
 
       if (idsTitles[i] === 'top-10') {
-        console.log('must change content');
         cloneCard.getElementsByClassName('title-img')[0].dataset.content =
           '#' + (j + 1);
       }
       currentSwiper.appendChild(cloneCard);
     }
   }
-  updateSwiperSlides();
 }
 function timeout(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function getTitles(url, nMax = 0) {
+function getTitles(url, titlesType = 'movie', nMax = 0) {
+  //get json with all titles
   return fetch(url)
     .then((resp) => resp.json())
-    .then(function (data) {
+    .then(async function (data) {
       titles = data['results'];
+      //filter to get just id, image, and name (not necessary at the moment)
+
+      titles = titles.map(function (t) {
+        const outputT = {
+          id: t['id'],
+          backdrop_path: t['backdrop_path'],
+          name: '123',
+        };
+        return outputT;
+      });
+
+      //remove titles with no image
       titles = titles.filter((title) => title['backdrop_path'] !== null);
-      return nMax === 0 ? titles : titles.slice(0, 10);
-      return filterTitles();
-      return data['results'].shift(); //.slice(0, 10)
-      currentTitle = GetTitle(currentTitle['id'], typeTitle);
-      cont++;
+
+      //get just the wished number of titles
+      titles =
+        nMax === 0 ? titles : titles.slice(0, Math.min(nMax, titles.length));
+
+      //try to get the portuguese name of the titles
+      for (var i = 0; i < titles.length; i++) {
+        titles[i]['name'] = await translateTitle(titles[i]['id'], titlesType);
+      }
+      return titles;
     })
     .catch(function (err) {
       return [];
     });
 }
 
-function getTitle(id, typeTitle) {
+function translateTitle(id, titleType) {
   var url =
     'https://api.themoviedb.org/3/' +
-    typeTitle +
+    titleType +
     '/' +
     id +
     '?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR';
   return fetch(url)
     .then((resp) => resp.json())
     .then(function (data) {
-      return ['green'];
-
-      return [data];
+      return titleType === 'tv' ? data['name'] : data['title'];
     })
     .catch(function (err) {
-      return [];
+      return '';
     });
 }
 
 //NOW PLAYING - BANNER
-//https://api.themoviedb.org/3/movie/now_playing?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR&page=1
+function updateBanner() {
+  endpoints = [
+    {
+      url: 'https://api.themoviedb.org/3/tv/on_the_air?api_key=048f6cfb793160accb8cce7d10a17083&language=en-US&page=1',
+      category: 'tv',
+    },
+    {
+      url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR&page=1',
+      category: 'movie',
+    },
+  ];
+
+  const randomEndpoint = Math.floor(Math.random() * 2);
+  const choosenEndpoint = endpoints[randomEndpoint];
+  return fetch(choosenEndpoint['url'])
+    .then((resp) => resp.json())
+    .then(function (data) {
+      var title = {};
+      do {
+        title =
+          data['results'][Math.floor(Math.random() * data['results'].length)];
+      } while (title['backdrop_path'] === null || title['overview'] === '');
+
+      console.log(choosenEndpoint['category']);
+      console.log(title);
+
+      document.getElementsByClassName('banner-title')[0].innerHTML =
+        choosenEndpoint['category'] === 'tv' ? title['name'] : title['title'];
+
+      document.getElementsByClassName('banner-description')[0].innerHTML =
+        title['overview'];
+
+      const titleInfo =
+        'https://www.themoviedb.org/' +
+        choosenEndpoint['category'] +
+        '/' +
+        title['id'];
+
+      document.getElementsByClassName('assistir-button')[0].href =
+        titleInfo + '/watch';
+
+      document.getElementsByClassName('mais-info-button')[0].href = titleInfo;
+
+      document
+        .getElementsByClassName('banner-image')[0]
+        .getElementsByTagName('img')[0].src =
+        'https://image.tmdb.org/t/p/original/' + title['backdrop_path'];
+    })
+    .catch(function (err) {
+      return '';
+    });
+}
+
+async function updateData() {
+  await updateBanner();
+  await fillCardsWithTitles();
+  updateSwiperSlides();
+}

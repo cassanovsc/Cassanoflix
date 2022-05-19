@@ -296,6 +296,7 @@ img{
 .assistir-button {
   background-color: #EEE;
   color:#141414;
+  transition: 0.3s;
 }
 
 .assistir-button:hover {
@@ -305,6 +306,7 @@ img{
 .mais-info-button {
   background-color: #888;
   color:#EEE;
+  transition: 0.3s;
 }
 
 .mais-info-button:hover{
@@ -625,23 +627,4 @@ transition: 0.3s;
 
 #templateCard {
   display: none;
-}
-
-.bg1 {
-  background-color: aqua;
-}
-.bg2 {
-  background-color:brown;
-}
-.bg3 {
-  background-color:lightcoral;
-}
-.bg4 {
-  background-color:blueviolet;
-}
-.bg5 {
-  background-color:chartreuse;
-}
-.bg6 {
-  background-color:darkgoldenrod;
 }
