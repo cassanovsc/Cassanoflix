@@ -180,10 +180,20 @@ async function fillCardsWithTitles() {
 
     for (var j = 0; j < currentCards.length; j++) {
       const cloneCard = cardTemplate.cloneNode(true);
+
       cloneCard
         .getElementsByClassName('title-img')[0]
         .getElementsByTagName('img')[0].src =
         'https://image.tmdb.org/t/p/w780' + currentCards[j]['backdrop_path'];
+
+      cloneCard
+        .getElementsByClassName('play-media')[0]
+        .getElementsByTagName('a')[0].href =
+        'https://www.themoviedb.org/' +
+        titlesType[i] +
+        '/' +
+        currentCards[j]['id'] +
+        '/watch';
 
       cloneCard
         .getElementsByClassName('title-media')[0]
@@ -191,6 +201,7 @@ async function fillCardsWithTitles() {
         titlesType[i] === 'movie'
           ? currentCards[j]['original_title']
           : currentCards[j]['name'];
+
       if (idsTitles[i] === 'top-10') {
         console.log('must change content');
         cloneCard.getElementsByClassName('title-img')[0].dataset.content =
@@ -228,7 +239,7 @@ function getTitle(id, typeTitle) {
     typeTitle +
     '/' +
     id +
-    '?api_key=<<api_key>>&language=pt-BR';
+    '?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR';
   return fetch(url)
     .then((resp) => resp.json())
     .then(function (data) {
@@ -240,3 +251,6 @@ function getTitle(id, typeTitle) {
       return [];
     });
 }
+
+//NOW PLAYING - BANNER
+//https://api.themoviedb.org/3/movie/now_playing?api_key=048f6cfb793160accb8cce7d10a17083&language=pt-BR&page=1
