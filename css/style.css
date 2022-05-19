@@ -630,6 +630,97 @@ transition: 0.3s;
   }
 }
 
+#loadingSplash {
+  position: fixed;
+  height: 100vh;
+  background-color: var(--secondaryColor);
+  width: 100vw;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  place-content: center;
+  gap: 2rem;
+}
+
+#loadingSplash div {
+  font-size: 10rem;
+  color: var(--primaryColor);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#loading-1 {
+  animation: pisca 5s linear 0s infinite alternate both running,
+  pula1 1s linear 0s infinite;
+}
+
+#loading-2 {
+  animation: pisca 5s linear 0s infinite alternate both running,
+  pula2 1s linear 0s infinite;
+}
+
+#loading-3 {
+  animation: pisca 5s ease-in 0s infinite alternate both running,
+  pula3 1s linear 0s infinite;
+}
+
+@keyframes pisca {
+	0% {
+		color: var(--secondaryColor);
+	}
+	50%{
+		color: var(--primaryColor);
+	}
+  100%{
+		color: var(--secondaryColor);
+  }
+}
+
+@keyframes pula1 {
+	0% {
+    padding-bottom: 0;
+	}
+	50%{
+    padding-bottom: 3rem;
+	}
+  100%{
+    padding-bottom: 0;
+  }
+}
+
+@keyframes pula2 {
+	0% {
+    padding-bottom: 2rem;
+	}
+	33.33%{
+    padding-bottom: 0;
+	}
+  83.33% {
+    padding-bottom: 3rem;
+	}
+  100% {
+    padding-bottom: 2rem;
+	}
+}
+
+@keyframes pula3 {
+	0% {
+    padding-bottom: 2rem;
+	}
+  16.67% {
+    padding-bottom: 3rem;
+  }
+	66.67%{
+    padding-bottom: 0;
+	}
+  100% {
+    padding-bottom: 2rem;
+	}
+}
+
 #templateCard {
   display: none;
 }

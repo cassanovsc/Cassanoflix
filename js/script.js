@@ -293,16 +293,16 @@ function updateBanner() {
       console.log(title);
 
       document.getElementsByClassName('banner-title')[0].innerHTML =
-        choosenEndpoint['category'] === 'tv' ? title['name'] : title['title'];
+        choosenEndpoint.category === 'tv' ? title.name : title.title;
 
       document.getElementsByClassName('banner-description')[0].innerHTML =
-        title['overview'];
+        title.overview;
 
       const titleInfo =
         'https://www.themoviedb.org/' +
         choosenEndpoint['category'] +
         '/' +
-        title['id'];
+        title.id;
 
       document.getElementsByClassName('assistir-button')[0].href =
         titleInfo + '/watch';
@@ -312,15 +312,20 @@ function updateBanner() {
       document
         .getElementsByClassName('banner-image')[0]
         .getElementsByTagName('img')[0].src =
-        'https://image.tmdb.org/t/p/original/' + title['backdrop_path'];
+        'https://image.tmdb.org/t/p/original/' + title.backdrop_path;
     })
     .catch(function (err) {
       return '';
     });
 }
 
+function showContent() {
+  document.getElementById('loadingSplash').style.display = 'none';
+}
+
 async function updateData() {
-  await updateBanner();
+  // await updateBanner();
   await fillCardsWithTitles();
   updateSwiperSlides();
+  showContent();
 }
