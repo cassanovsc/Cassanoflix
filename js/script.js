@@ -134,9 +134,21 @@ $(window).bind('resizeEnd', function () {
   if (lastWindowWidth != getCurrentWindowWidth()) location.reload();
 });
 
+//options dropdown
 var visibleDropdownOptions = false;
-
 function activeDropdownOptions() {
+  visibleDropdownOptions = !visibleDropdownOptions;
+  if (visibleDropdownOptions) {
+    document.getElementById('dropdownOptions').style.display = 'grid';
+  } else {
+    document.getElementById('dropdownOptions').style.display = 'none';
+  }
+}
+
+//search bar
+var visibleSearchBar = false;
+
+function activeSearchBar() {
   visibleDropdownOptions = !visibleDropdownOptions;
   if (visibleDropdownOptions) {
     document.getElementById('dropdownOptions').style.display = 'grid';
