@@ -231,13 +231,6 @@ ul {
   }
 }
 
-@media (max-height: 600px){
-  .banner-principal {
-    grid-template-columns: 3fr 2fr;
-    height: calc(100vh - 5rem);
-  }
-}
-
 @media (max-height: 600px) and (max-width: 950px){
   .banner-principal {
     height: calc(100vh - 3rem);
@@ -380,7 +373,7 @@ img{
 
 @media (max-width: 550px){
   .banner-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   
   .banner-description {
@@ -393,6 +386,31 @@ img{
 
   .banner-buttons mais-info-button a {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-height: 600px){
+  .banner-principal {
+    grid-template-columns: 3fr 2fr;
+    height: calc(100vh - 5rem);
+  }
+
+  .banner-title {
+    font-size: 1.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .banner-description {
+    font-size: 0.9rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .mais-info-button {
+    font-size: 0.9rem;
+  }
+
+  .banner-buttons {
+    gap: 0.9rem
   }
 }
 
