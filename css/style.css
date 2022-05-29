@@ -208,6 +208,101 @@ ul {
   }
 }
 
+#pesquisar {
+  position: relative;
+}
+
+#pesquisar input{
+  width: 100%;
+  padding: 0.2rem;
+  padding-right: 1.5rem;
+  background-color: var(--secondaryColor);
+  border: solid 1px #EEE;;
+  border-radius: 5px;
+  height: 1.5rem;
+  font-size: 1rem;
+  color: #EEE;;
+} 
+
+#pesquisar button {
+  background-color: rgba( 0, 0, 0, 0);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0.1rem;
+  top: 0.1rem;
+  display: inline;
+  place-content: center;
+  height: 20px;
+  width: 20px;
+  color: #EEE;
+  transition: 0.3s;
+}
+
+#pesquisar button:hover {
+  color: #AAA;
+}
+
+#searchBar {
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -10.5rem;
+  width: 10rem;
+  grid-template-columns: auto auto;
+  place-content: center;
+}
+
+#notificacao {
+  position: relative;
+}
+
+#notificationArea {
+  position: absolute;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  bottom: calc(-1rem - 4rem);
+  left: -12rem;
+  width: 14rem;
+  background-color: rgba( 0, 0, 0, 0.8);
+  height: 4rem;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: none;
+  place-content: center;
+}
+
+#usuario {
+  position: relative;
+}
+
+#userArea {
+  position: absolute;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  bottom: calc(-1rem - 6rem);
+  left: -12rem;
+  width: 14rem;
+  background-color: rgba( 0, 0, 0, 0.8);
+  height: 6rem;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: none;
+  place-content: center;
+}
+
+.user-info{
+  display: grid;
+  grid-template-columns:  1fr 2fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
 .main-container {
   margin: 5rem 0 0 5%;
 }
@@ -221,19 +316,19 @@ ul {
 .banner-principal {
   display: grid;
   grid-template-columns: 5fr 7fr;
-  height: 70vh;
+  min-height: 70vh;
 }
 
 @media (max-width: 950px){
   .banner-principal {
     grid-template-columns: 3fr 2fr;
-    height: 60vh;
+    min-height: 60vh;
   }
 }
 
 @media (max-height: 600px) and (max-width: 950px){
   .banner-principal {
-    height: calc(100vh - 3rem);
+    min-height: calc(100vh - 3rem);
   }
 }
 
@@ -298,6 +393,7 @@ img{
 .banner-buttons {
   display: flex;
   gap:20px;
+  padding-bottom: 1rem;
 }
 
 
@@ -351,14 +447,11 @@ img{
   .banner-description {
     font-size: 1.2rem;
     padding-bottom: 1rem;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
-    max-height: 13.5rem;
+    max-height: 13.5rem; */
 
-  }
-    .banner-info {
-      margin-top: -2rem;
   }
 }
 
@@ -380,9 +473,6 @@ img{
     font-size: 1rem;
     padding-bottom: 1rem;
   }
-    .banner-info {
-      margin-top: -2rem;
-  }
 
   .banner-buttons mais-info-button a {
     font-size: 0.9rem;
@@ -392,7 +482,7 @@ img{
 @media (max-height: 600px){
   .banner-principal {
     grid-template-columns: 3fr 2fr;
-    height: calc(100vh - 5rem);
+    min-height: calc(100vh - 5rem);
   }
 
   .banner-title {

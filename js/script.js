@@ -147,13 +147,46 @@ function activeDropdownOptions() {
 
 //search bar
 var visibleSearchBar = false;
-
 function activeSearchBar() {
-  visibleDropdownOptions = !visibleDropdownOptions;
-  if (visibleDropdownOptions) {
-    document.getElementById('dropdownOptions').style.display = 'grid';
+  visibleSearchBar = !visibleSearchBar;
+  if (visibleSearchBar) {
+    document.getElementById('searchBar').style.display = 'grid';
+    visibleNotificationArea = false;
+    document.getElementById('notificationArea').style.display = 'none';
+    visibleUserArea = false;
+    document.getElementById('userArea').style.display = 'none';
   } else {
-    document.getElementById('dropdownOptions').style.display = 'none';
+    document.getElementById('searchBar').style.display = 'none';
+  }
+}
+
+//notificationArea
+var visibleNotificationArea = false;
+function activeNotificationArea() {
+  visibleNotificationArea = !visibleNotificationArea;
+  if (visibleNotificationArea) {
+    document.getElementById('notificationArea').style.display = 'grid';
+    visibleSearchBar = false;
+    document.getElementById('searchBar').style.display = 'none';
+    visibleUserArea = false;
+    document.getElementById('userArea').style.display = 'none';
+  } else {
+    document.getElementById('notificationArea').style.display = 'none';
+  }
+}
+
+//userArea
+var visibleUserArea = false;
+function activeUserArea() {
+  visibleUserArea = !visibleUserArea;
+  if (visibleUserArea) {
+    document.getElementById('userArea').style.display = 'grid';
+    visibleNotificationArea = false;
+    document.getElementById('notificationArea').style.display = 'none';
+    visibleSearchBar = false;
+    document.getElementById('searchBar').style.display = 'none';
+  } else {
+    document.getElementById('userArea').style.display = 'none';
   }
 }
 
@@ -290,7 +323,11 @@ function updateBanner() {
     },
   ];
 
-  const randomEndpoint = Math.floor(Math.random() * 2);
+  var randomEndpoint = Math.floor(Math.random() * 2);
+
+  //REMOVED THE RANDOM OF MOVIES AND TV SERIES, BECAUSE SERIES SOMETIMES WOULD COME WITH ENGLISH DESCRIPTION FROM API.
+  randomEndpoint = 1;
+
   const choosenEndpoint = endpoints[randomEndpoint];
   return fetch(choosenEndpoint['url'])
     .then((resp) => resp.json())
@@ -336,7 +373,7 @@ function showContent() {
 }
 
 async function updateData() {
-  // await updateBanner();
+  await updateBanner();
   await fillCardsWithTitles();
   updateSwiperSlides();
   showContent();
